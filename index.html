@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
     <title>Todo List</title>
 </head>
 <body>
     <div class="project-sidebar"></div>
     <div class="todo-container">
-        <button class="todo btn"></button>
+        <form id="todo-form">
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="date" name="due-date" required>
+            <label>
+                <input type="radio" name="priority" value="low" required>
+                LOW
+            </label>
+            <label>
+                <input type="radio" name="priority" value="medium" required>
+                MEDIUM
+            </label>
+            <label>
+                <input type="radio" name="priority" value="high" required>
+                HIGH
+            </label>
+            <button type="submit">Add Todo</button>
+        </form>
     </div>
 </body>
 </html>
