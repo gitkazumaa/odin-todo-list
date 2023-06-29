@@ -19,6 +19,8 @@ body {
 }
 
 .project-sidebar {
+    display: flex;
+    flex-direction: column;
     min-width: 100px;
     flex: 1 1 auto;
 }

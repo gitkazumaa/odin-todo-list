@@ -31,6 +31,29 @@ const toDoItemUI = (todoItem) => {
     return todo;
 }
 
+const project = (projectTitle) => {
+    this.title = projectTitle;
+    return {title}
+}
+
+const projectUI = (project) => {
+    const projectContainer = document.createElement("div");
+
+    const title = document.createElement("span");
+    title.innerHTML = project.title;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.addEventListener("click", () => {
+        projectContainer.remove();
+    });
+
+    projectContainer.appendChild(title);
+    projectContainer.appendChild(deleteBtn);
+
+    return projectContainer;
+}
+
 const todoForm = document.getElementById("todo-form");
 todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -50,3 +73,13 @@ todoForm.addEventListener("submit", (e) => {
     const itemUI = toDoItemUI(item);
     todoContainer.appendChild(itemUI);
 });
+
+const projectForm = document.getElementById("project-form");
+projectForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const [projectSidebar] = document.getElementsByClassName("project-sidebar");
+    const [projectTitle] = document.getElementsByName("project-title");
+    const item = project(projectTitle.value);
+    const itemUI = projectUI(item);
+    projectSidebar.appendChild(itemUI)
+})
