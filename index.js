@@ -1,6 +1,13 @@
+const toDoList = () => {
+    this.toDoArray = [];
+
+    return {toDoArray};
+}
+
 const project = (projectTitle) => {
     this.title = projectTitle;
-    return {title}
+    this.itemList = toDoList();
+    return {title, itemList}
 }
 
 const projectUI = (project) => {
@@ -100,4 +107,13 @@ const toDoItemUI = (todoItem) => {
     todo.appendChild(deleteBtn);
 
     return todo;
+}
+
+const clearToDo = () => {
+    const [todoContainer] = document.getElementsByClassName("todo-container");
+    todoContainerChildren = todoContainer.children;
+    console.log(todoContainerChildren);
+    for (let i = 1; i < todoContainerChildren.length; i++) {
+        todoContainerChildren.item(i).remove();
+    }
 }
