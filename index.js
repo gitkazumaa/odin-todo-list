@@ -45,6 +45,7 @@ projectSidebar.appendChild((() => {
     return homeProject;
 })());
 
+
 const todoForm = document.getElementById("todo-form");
 todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -89,6 +90,9 @@ const toDoItemUI = (todoItem) => {
     
     const deleteBtn = document.createElement("button");
     deleteBtn.type ="button";
+    deleteBtn.addEventListener("click", () => {
+        projectContainer.remove();
+    });
 
     todo.appendChild(checkbox);
     todo.appendChild(title);
